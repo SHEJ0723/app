@@ -1,0 +1,104 @@
+:root {
+  --primary: #2563eb;
+  --secondary: #1e40af;
+  --accent: #7c3aed;
+  --background: #f0f9ff;
+  --card: #ffffff;
+  --text: #1e293b;
+  --orange: #f59e42;
+  --green: #22c55e;
+  --green-light: #bbf7d0;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui;
+  background: var(--background);
+  color: var(--text);
+}
+
+button, .el-button {
+  background: linear-gradient(90deg, #2563eb 0%, #7c3aed 100%);
+  border-radius: 12px;
+  padding: 12px 0;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+button:hover, .el-button:hover {
+  background: linear-gradient(90deg, #1e40af 0%, #a78bfa 100%);
+}
+
+.card, .el-card {
+  background: var(--card);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(80,80,160,0.15);
+  padding: 36px 24px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--primary);
+  font-weight: bold;
+}
+
+input, .el-input__wrapper {
+  border: 1.5px solid #e0e7ef;
+  border-radius: 8px;
+  background: #f8fafc;
+  transition: border-color 0.2s;
+}
+input:focus, .el-input__wrapper:focus-within {
+  border-color: #2563eb;
+}
+
+/* 强调色按钮 */
+.btn-orange {
+  background: var(--orange) !important;
+  color: #fff !important;
+}
+
+/* 主内容区渐变背景 */
+.main-gradient-bg {
+  background: linear-gradient(120deg, #f0f9ff 60%, #e0e7ff 100%);
+  min-height: 100vh;
+  padding: 32px 0;
+}
+
+/* 侧边栏、顶部栏、功能按钮、布局图等样式见各页面 */
+
+/* 绿色按钮样式 */
+.btn-green {
+  background: linear-gradient(90deg, #22c55e 0%, #4ade80 100%) !important;
+  color: #fff !important;
+  border: none;
+  box-shadow: 0 2px 8px #22c55e22;
+  transition: background 0.2s;
+}
+.btn-green:hover {
+  background: linear-gradient(90deg, #16a34a 0%, #22d3ee 100%) !important;
+}
+
+/* 绿色高亮交互 */
+.sidebar .el-menu-item.is-active,
+.sidebar .el-menu-item:hover {
+  background: var(--green-light) !important;
+  color: var(--green) !important;
+  border-radius: 12px;
+}
+
+/* 卡片绿色状态条（如可用/成功） */
+.card-green-bar {
+  border-left: 4px solid var(--green);
+}
+
+/* 绿色标签/状态点 */
+.status-green {
+  color: var(--green);
+  background: var(--green-light);
+  border-radius: 8px;
+  padding: 2px 8px;
+  font-size: 0.95em;
+  margin-left: 6px;
+} 

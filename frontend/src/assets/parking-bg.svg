@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="400" viewBox="0 0 1200 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- 地面 -->
+    <rect x="0" y="300" width="1200" height="100" fill="#E4E7EC"/>
+    
+    <!-- 停车线 -->
+    <g stroke="#D8DCE6" stroke-width="4">
+        <!-- 停车位分隔线 -->
+        <line x1="100" y1="300" x2="100" y2="400"/>
+        <line x1="300" y1="300" x2="300" y2="400"/>
+        <line x1="500" y1="300" x2="500" y2="400"/>
+        <line x1="700" y1="300" x2="700" y2="400"/>
+        <line x1="900" y1="300" x2="900" y2="400"/>
+        <line x1="1100" y1="300" x2="1100" y2="400"/>
+    </g>
+    
+    <!-- 汽车剪影 -->
+    <g fill="#C0C4CC">
+        <!-- 车1 -->
+        <path d="M150 320h100v30h-100z"/>
+        <circle cx="170" cy="350" r="10"/>
+        <circle cx="230" cy="350" r="10"/>
+        
+        <!-- 车2 -->
+        <path d="M550 320h100v30h-100z"/>
+        <circle cx="570" cy="350" r="10"/>
+        <circle cx="630" cy="350" r="10"/>
+        
+        <!-- 车3 -->
+        <path d="M950 320h100v30h-100z"/>
+        <circle cx="970" cy="350" r="10"/>
+        <circle cx="1030" cy="350" r="10"/>
+    </g>
+    
+    <!-- 建筑物剪影 -->
+    <g fill="#909399">
+        <rect x="50" y="100" width="200" height="200"/>
+        <rect x="300" y="150" width="150" height="150"/>
+        <rect x="500" y="50" width="180" height="250"/>
+        <rect x="750" y="120" width="220" height="180"/>
+        <rect x="1020" y="80" width="130" height="220"/>
+    </g>
+    
+    <!-- 窗户 -->
+    <g fill="#F5F7FA">
+        <g transform="translate(70,120)">
+            <rect x="0" y="0" width="30" height="30" rx="2"/>
+            <rect x="50" y="0" width="30" height="30" rx="2"/>
+            <rect x="100" y="0" width="30" height="30" rx="2"/>
+            <rect x="150" y="0" width="30" height="30" rx="2"/>
+            
+            <rect x="0" y="50" width="30" height="30" rx="2"/>
+            <rect x="50" y="50" width="30" height="30" rx="2"/>
+            <rect x="100" y="50" width="30" height="30" rx="2"/>
+            <rect x="150" y="50" width="30" height="30" rx="2"/>
+            
+            <rect x="0" y="100" width="30" height="30" rx="2"/>
+            <rect x="50" y="100" width="30" height="30" rx="2"/>
+            <rect x="100" y="100" width="30" height="30" rx="2"/>
+            <rect x="150" y="100" width="30" height="30" rx="2"/>
+        </g>
+    </g>
+</svg> 
