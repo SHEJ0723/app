@@ -9,6 +9,8 @@ from routes.auth import auth_bp
 from routes.parking import parking_bp
 from routes.users import users_bp
 from routes.chat import chat_bp
+from routes.orders import orders_bp
+from routes.bills import bills_bp
 from utils.redis_client import redis_client
 from config.config import Config
 
@@ -49,6 +51,8 @@ def create_app():
     app.register_blueprint(parking_bp)  # 注册停车场管理路由
     app.register_blueprint(users_bp)  # 注册用户管理路由
     app.register_blueprint(chat_bp)  # 注册在线对话路由
+    app.register_blueprint(orders_bp)
+    app.register_blueprint(bills_bp)
     
     # 错误处理
     @app.errorhandler(400)
@@ -124,23 +128,36 @@ def create_app():
             print("账号：3303649391")
             print("密码：3303649391")
         
-        # 初始化15个车位（如无则插入）
+        # 初始化停车位数据（如无则插入CSV数据）
         from models.parking_spot import ParkingSpot
         if ParkingSpot.query.count() == 0:
+            csv_data = [
+                ["A01","A","Standard","Occupied","NA","1-1"],
+                ["A02","A","Standard","Available","NA","1-2"],
+                ["A03","A","Disabled","Available","Wheelchair","1-3"],
+                ["A04","A","Charging","Occupied","Electric","1-4"],
+                ["B01","B","Standard","Reserved","NA","2-1"],
+                ["B02","B","Standard","Available","NA","2-2"],
+                ["C01","C","Truck","Available","Height:4.2m","3-1"],
+                ["C02","C","Standard","Occupied","NA","3-2"],
+                ["D01","D","Charging","Available","Electric","4-1"],
+                ["D02","D","Disabled","Available","Wheelchair","4-2"],
+            ]
             spots = []
-            for zone in ['A', 'B', 'C']:
-                for i in range(1, 6):
-                    spot = ParkingSpot(
-                        spot_number=f'{zone}{i}',
-                        zone=zone,
-                        type='普通',
-                        status='空闲',
-                        is_active=True
-                    )
-                    spots.append(spot)
+            for row in csv_data:
+                spot = ParkingSpot(
+                    spot_number=row[0],
+                    zone=row[1],
+                    type=row[2],
+                    status=row[3],
+                    special_attribute=None if row[4] == "NA" else row[4],
+                    coordinates=row[5],
+                    is_active=True
+                )
+                spots.append(spot)
             db.session.add_all(spots)
             db.session.commit()
-            print('已初始化15个车位（A/B/C区各5个，全部空闲）')
+            print('已批量导入停车位数据')
     
     @app.route('/')
     def index():

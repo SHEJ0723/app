@@ -36,7 +36,13 @@ import parkingBg from '@/assets/parking-bg.svg'
 
 const router = useRouter()
 function goTo(name) {
-  router.push({ name })
+  // 路由name映射表
+  const nameMap = {
+    ParkingMap: 'ParkingStatus', // 或新建ParkingMap页面
+    Fee: 'UserBills',
+    Orders: 'UserOrders'
+  }
+  router.push({ name: nameMap[name] || name })
 }
 </script>
 

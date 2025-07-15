@@ -13,6 +13,8 @@ class ParkingSpot(db.Model):
     is_active = db.Column(db.Boolean, default=True)  # 是否启用
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+    special_attribute = db.Column(db.String(50), nullable=True)  # 特殊属性（如Electric, Wheelchair等）
+    coordinates = db.Column(db.String(10), nullable=True)  # 网格坐标（如1-1, 2-2等）
 
     def to_dict(self):
         """转换为字典格式"""
@@ -23,6 +25,8 @@ class ParkingSpot(db.Model):
             'type': self.type,
             'status': self.status,
             'is_active': self.is_active,
+            'special_attribute': self.special_attribute,
+            'coordinates': self.coordinates,
             'created_at': self.created_at.isoformat(),
             'updated_at': self.updated_at.isoformat()
         }
